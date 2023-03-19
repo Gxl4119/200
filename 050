@@ -1,0 +1,28 @@
+#include<stdio.h>
+/*
+- 使用指针连接两个字符串
+*/
+int main()
+{
+	char a[50], b[50];
+	char* pa = a, * pb = b;
+	printf("输入第一组:");
+	gets_s(a, 50);
+	printf("输入第二组:");
+	gets_s(b, 50);
+	while (*pa != '\0')
+	{
+		pa++;
+	}
+	*pa = ' ';
+	pa++;
+	while (*pb != '\0')
+	{
+		*pa = *pb;
+		pa++;
+		pb++;
+	}
+	*pa = '\0';
+	printf("结果:%s", a);
+	return 0;
+}
