@@ -1,0 +1,32 @@
+# 200
+#include<stdio.h>
+/*
+- 将十进制转化为二进制
+- Convert decimal to binary
+*/
+/*
+- a[i] = n%2
+- n = n/2
+*/
+int main()
+{
+	int a[16] = { 0 };
+	int i, n;
+
+	printf("Please input a decimalism number:\n");
+	scanf("%d", &n);
+
+	for (i = 0; i < 15; i++)
+	{
+		a[i] = n % 2;
+		n /= 2;
+	}
+
+	for (i = 15; i >= 0; i--)
+	{
+		printf("%d", a[i]);
+		if (i % 4 == 0)
+			printf(" ");
+	}
+	return 0;
+}
