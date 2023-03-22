@@ -1,0 +1,72 @@
+# 200
+#include<stdio.h>
+/*
+- 分数计算器程序
+*/
+int gys(int x, int y);//定义求最大公约数函数
+void yuefen(int fz, int fm);//定义约分
+void add(int a, int b, int c, int d);//定义加法
+void mul(int a, int b, int c, int d);//定义乘法
+void sub(int a, int b, int c, int d);//定义减法
+void div(int a, int b, int c, int d);//定义除法
+int main()
+{
+	char op;
+	int a, b, c, d;
+	scanf("%ld,%ld,%c,%ld,%ld", &a, &b, &op, &c, &d);
+	switch (op)
+	{
+	case '+':add(a, b, c, d); break;
+	case '*':mul(a, b, c, d); break;
+	case '-':sub(a, b, c, d); break;
+	case '/':div(a, b, c, d); break;
+	}
+	return 0;
+}
+int gys(int x, int y)//定义求最大公约数函数
+{
+	return y ? gys(y, x % y) : x;
+}
+int gbs(int x, int y)
+{
+	return x / gys(x, y) * y;
+}
+void yuefen(int fz, int fm)//定义约分
+{
+	int s = gys(fz, fm);
+	fz /= s;
+	fm /= s;
+	printf("the result is %d/%d\n", fz, fm);
+}
+void add(int a, int b, int c, int d)//定义加法
+{
+	int u1, u2, v = gbs(b, d), fz1, fm1;
+	u1 = v / b * a;
+	u2 = v / d * c;
+	fz1 = u1 + u2;
+	fm1 = v;
+	yuefen(fz1, fm1);
+}
+void mul(int a, int b, int c, int d)//定义乘法
+{
+	int u1, u2;
+	u1 = a * c;
+	u2 = b * d;
+	yuefen(u1, u2);
+}
+void sub(int a, int b, int c, int d)//定义减法
+{
+	int u1, u2, v = gbs(b, d), fz1, fm1;
+	u1 = v / b * a;
+	u2 = v / d * c;
+	fz1 = u1 - u2;
+	fm1 = v;
+	yuefen(fz1, fm1);
+}
+void div(int a, int b, int c, int d)//定义除法
+{
+	int u1, u2;
+	u1 = a * d;
+	u2 = b * c;
+	yuefen(u1, u2);
+}
