@@ -1,0 +1,15 @@
+# 200
+#include<stdio.h>
+/*
+- 求两数的和
+- Take the sum of two numbers
+*/
+int main()
+{
+	int a, b, sum;
+	printf("Please input two number :\n");
+	scanf("%d%d", &a, &b);
+	sum = a + b;
+	printf("%d add %d = %d", a, b, sum);
+	return 0;
+}
