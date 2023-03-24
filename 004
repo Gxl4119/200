@@ -1,0 +1,33 @@
+# 200
+#include<stdio.h>
+/*
+- 三个数由小到大排序
+- Order the three numbers from smallest to largest
+*/
+int main()
+{
+	int temp;
+	int a, b, c;
+	printf("Please input three number:\n");
+	scanf("%d%d%d", &a, &b, &c);
+	if (a > b)
+	{
+		temp = a;
+		a = b;
+		b = temp;
+	}
+	if (a > c)
+	{
+		temp = a;
+		a = c;
+		c = temp;
+	}
+	if (b > c)
+	{
+		temp = b;
+		b = c;
+		c = temp;
+	}
+	printf("%d %d %d", a, b, c);
+	return 0;
+}
