@@ -1,0 +1,17 @@
+# 200
+#include<stdio.h>
+/*
+- 猴子摘桃
+- Monkey picks peach
+*/
+int main()
+{
+	int i, total = 1;
+	for (i = 9; i > 0; i--)
+	{
+		total += 1;
+		total *= 2;
+	}
+	printf("%d", total);
+	return 0;
+}
