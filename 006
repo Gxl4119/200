@@ -1,0 +1,24 @@
+# 200
+#include<stdio.h>
+/*
+- 计算某日是该年的第几天
+- Calculate the day of the year
+*/
+//是否为闰年  ---  Whether it is a leap year    year%4==0&&year%100!=0||year%400==0
+int main() 
+{
+	int i, n = 0;
+	int m[] = { 31,28,31,30,31,30,31,31,30,31,30,31 };
+	int day, month, year;
+	printf("Please input year month day:\n");
+	scanf("%d%d%d", &year, &month, &day);
+	if (year % 4 == 0 && year % 100 != 0 || year % 400 == 0)
+		m[1] += 1;
+	for (i = 0; i < month-1; i++)
+	{
+		n += m[i];
+	}
+	n += day;
+	printf("The day is %d of this year", n);
+	return 0;
+}
