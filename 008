@@ -1,0 +1,24 @@
+# 200
+#include<stdio.h>
+/*
+- 百钱买百鸡
+- A hundred dollars buys a hundred chickens
+*/
+int main()
+{
+	int cock, hen, chick;
+	for (cock = 0; cock <= 20; cock++)
+	{
+		for (hen = 0; hen <= 33; hen++)
+		{
+			for (chick = 3; chick < 100; chick++)
+			{
+				if (5 * cock + 3 * hen + chick/3 == 100 && cock + hen + chick == 100 && chick % 3 == 0)
+				{
+					printf("cock:%d\then:%d\tchick:%d\n", cock, hen, chick);
+				}
+			}
+		}
+	}
+	return 0;
+}
