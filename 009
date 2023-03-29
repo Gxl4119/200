@@ -1,0 +1,43 @@
+# 200
+#include<stdio.h>
+/*
+- 打鱼晒网问题
+- Fish drying net problem
+*/
+int main()
+{
+	int i, num = 0;
+	int m[] = { 31,28,31,30,31,30,31,31,30,31,30,31 };
+	int year, month, day;
+	printf("Please enter a date after January 1, 2011:\n");
+	scanf("%d%d%d", &year, &month, &day);
+	for (i = 2011; i < year; i++)
+	{
+		if (leap(i) == 1)
+			num += 366;
+		else
+			num += 365;
+	}
+	if (leap(year))
+		m[1]++;
+	for (i = 0; i < month-1; i++)
+	{
+		num += m[i];
+	}
+	num += day;
+
+
+	if (num % 5 < 4 && num % 5 > 0)
+		printf("打鱼");
+	else
+		printf("晒网");
+	return 0;
+}
+
+int leap(int n)
+{
+	if (n % 400 == 0 || n % 4 == 0 && n % 100 != 0)
+		return 1;
+	else
+		return 0;
+}
