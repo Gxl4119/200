@@ -1,0 +1,18 @@
+# 200
+#include<stdio.h>
+/*
+- 小球下落问题
+- The ball falling problem
+*/
+int main()
+{
+	float i , h = 100, s = 100;
+	for (i = 1; i < 10; i++)
+	{
+		h /= 2;
+		s += 2*h;
+	}
+	printf("%f\n", s);
+	printf("%f", h / 2);
+	return 0;
+}
