@@ -1,0 +1,35 @@
+/**
+ * Note: The returned array must be malloced, assume caller calls free().
+ */
+bool* camelMatch(char ** queries, int queriesSize, char * pattern, int* returnSize){
+    int i,j,k;
+    //定义布尔类型数组
+    bool *isBool = (bool*)malloc(sizeof(bool)*(queriesSize));
+    //全部定义为true,不满足条件的改为false
+    for(i=0;i<queriesSize;i++)
+    {
+        isBool[i] = true;
+    }
+    //外层循环
+    for(i=0;i<queriesSize;i++)
+    {
+        //内层循环
+        for(j = 0, k = 0; queries[i][j] != '\0'; j++)
+        {
+            //判断  小写-小写 大写-大写
+            if(queries[i][j] == pattern[k])
+                k++;
+            //都是大写但是不相等(上面已经判断了是否相等)
+            else if(queries[i][j] >= 'A' && queries[i][j] <= 'Z' && pattern[k] >= 'A' && pattern[k] <= 'Z')
+                isBool[i] = false;
+            //模式串遍历完,但是带查询的字符串中有大写字母
+            else if(pattern[k] == '\0' && queries[i][j] >= 'A' && queries[i][j] <= 'Z')
+                isBool[i] = false;
+        }
+        //模式串没有遍历完,说明带查询项中没有模式串中的字母
+        if(pattern[k] != '\0')
+            isBool[i] = false;
+    }
+    *returnSize = queriesSize;
+    return isBool;
+}
